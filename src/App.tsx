@@ -1,11 +1,16 @@
-import { Button } from "./components/ui/button"
+import { Provider } from "react-redux"
+import { RouterProvider } from "react-router"
+import { PersistGate } from "redux-persist/integration/react"
+import { store, persistor } from "./store/store"
+import routes from "./routes"
 
 const App = () => {
   return (
-    <main>
-      <h1>Verdant Plant App</h1>
-      <Button>Click Me</Button>
-    </main>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <RouterProvider router={routes} />
+      </PersistGate>
+    </Provider>
   )
 }
 
