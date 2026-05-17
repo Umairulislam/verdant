@@ -14,7 +14,7 @@ export const plants: Plant[] = [
     temperature: "18–27°C",
     description:
       "The iconic split-leaf plant. Fast growing and dramatic — perfect for bright living rooms.",
-    image: "monstera.jpg",
+    image: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=500&fit=crop",
     inStock: true,
     featured: true,
   },
@@ -30,7 +30,7 @@ export const plants: Plant[] = [
     humidity: "Low",
     temperature: "15–29°C",
     description: "Almost indestructible. Thrives on neglect and purifies the air while you sleep.",
-    image: "snake-plant.jpg",
+    image: "https://images.unsplash.com/photo-1599598425947-5202edd56bdb?w=500&fit=crop",
     inStock: true,
     featured: true,
   },
@@ -47,7 +47,7 @@ export const plants: Plant[] = [
     temperature: "18–30°C",
     description:
       "Elegant white blooms in low light. One of the few flowering plants that thrives indoors.",
-    image: "peace-lily.jpg",
+    image: "https://images.unsplash.com/photo-1616690248485-393f53867e45?w=500&fit=crop",
     inStock: true,
     featured: false,
   },
@@ -63,7 +63,7 @@ export const plants: Plant[] = [
     humidity: "High",
     temperature: "16–24°C",
     description: "Lush, arching fronds that bring a wild forest feel to any space. Loves humidity.",
-    image: "boston-fern.jpg",
+    image: "https://images.unsplash.com/photo-1597305877032-0668b3c6413a?w=500&fit=crop",
     inStock: true,
     featured: false,
   },
@@ -80,7 +80,7 @@ export const plants: Plant[] = [
     temperature: "18–26°C",
     description:
       "A rosette-shaped succulent with powdery blue-grey leaves. Minimal care, maximum charm.",
-    image: "echeveria.jpg",
+    image: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=500&fit=crop",
     inStock: true,
     featured: true,
   },
@@ -97,7 +97,7 @@ export const plants: Plant[] = [
     temperature: "18–30°C",
     description:
       "A bold statement plant with enormous paddle-shaped leaves. The crown jewel of any room.",
-    image: "bird-of-paradise.jpg",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&fit=crop",
     inStock: true,
     featured: true,
   },
@@ -114,7 +114,7 @@ export const plants: Plant[] = [
     temperature: "16–24°C",
     description:
       "The designer's favourite. Dramatic violin-shaped leaves demand attention — and a little patience.",
-    image: "fiddle-leaf-fig.jpg",
+    image: "https://images.unsplash.com/photo-1572688484438-313a6e50c333?w=500&fit=crop",
     inStock: false,
     featured: false,
   },
@@ -131,7 +131,7 @@ export const plants: Plant[] = [
     temperature: "15–26°C",
     description:
       "Glossy, waxy leaves that shine without any effort. Survives drought and low light with ease.",
-    image: "zz-plant.jpg",
+    image: "https://images.unsplash.com/photo-1632207691143-643e2a9a9361?w=500&fit=crop",
     inStock: true,
     featured: false,
   },
