@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { persistReducer } from "redux-persist"
 import storage from "./storage"
+import type { AuthUser } from "@/types"
 
 interface AuthState {
-  user: null | { name: string; email: string }
+  user: AuthUser | null
   isAuthenticated: boolean
 }
 

@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { persistReducer } from "redux-persist"
 import storage from "./storage"
+import type { CartItem } from "@/types"
 
 interface CartState {
-  items: []
+  items: CartItem[]
 }
 
 const initialState: CartState = {

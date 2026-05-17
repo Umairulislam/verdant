@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { persistReducer } from "redux-persist"
 import storage from "./storage"
+import type { Order } from "@/types"
 
 interface OrderState {
-  items: []
+  items: Order[]
 }
 
 const initialState: OrderState = {
