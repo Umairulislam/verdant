@@ -30,7 +30,7 @@ export const plants: Plant[] = [
     humidity: "Low",
     temperature: "15–29°C",
     description: "Almost indestructible. Thrives on neglect and purifies the air while you sleep.",
-    image: "https://images.unsplash.com/photo-1599598425947-5202edd56bdb?w=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1593482892540-73c9199d8949?w=500&fit=crop",
     inStock: true,
     featured: true,
   },
@@ -47,7 +47,7 @@ export const plants: Plant[] = [
     temperature: "18–30°C",
     description:
       "Elegant white blooms in low light. One of the few flowering plants that thrives indoors.",
-    image: "https://images.unsplash.com/photo-1616690248485-393f53867e45?w=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1593691509543-c55fb32d8de5??w=500&fit=crop",
     inStock: true,
     featured: false,
   },
@@ -63,7 +63,7 @@ export const plants: Plant[] = [
     humidity: "High",
     temperature: "16–24°C",
     description: "Lush, arching fronds that bring a wild forest feel to any space. Loves humidity.",
-    image: "https://images.unsplash.com/photo-1597305877032-0668b3c6413a?w=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1610491536492-cee9f12c860f?w=500&fit=crop",
     inStock: true,
     featured: false,
   },
@@ -80,7 +80,7 @@ export const plants: Plant[] = [
     temperature: "18–26°C",
     description:
       "A rosette-shaped succulent with powdery blue-grey leaves. Minimal care, maximum charm.",
-    image: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1668508380767-a13f204bde1c?w=500&fit=crop",
     inStock: true,
     featured: true,
   },
@@ -97,7 +97,7 @@ export const plants: Plant[] = [
     temperature: "18–30°C",
     description:
       "A bold statement plant with enormous paddle-shaped leaves. The crown jewel of any room.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1631122750867-6cfee01358b5?w=500&fit=crop",
     inStock: true,
     featured: true,
   },
@@ -114,7 +114,7 @@ export const plants: Plant[] = [
     temperature: "16–24°C",
     description:
       "The designer's favourite. Dramatic violin-shaped leaves demand attention — and a little patience.",
-    image: "https://images.unsplash.com/photo-1572688484438-313a6e50c333?w=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1638741280384-36839c90f329?w=500&fit=crop",
     inStock: false,
     featured: false,
   },
@@ -139,3 +139,11 @@ export const plants: Plant[] = [
 
 export const getFeaturedPlants = () => plants.filter((p) => p.featured)
 export const getPlantById = (id: string) => plants.find((p) => p.id === id)
+export const getFilteredPlants = (category?: string, difficulty?: string, light?: string) => {
+  return plants.filter((plant) => {
+    const matchCategory = !category || category === "all" || plant.category === category
+    const matchDifficulty = !difficulty || difficulty === "all" || plant.difficulty === difficulty
+    const matchLight = !light || light === "all" || plant.light === light
+    return matchCategory && matchDifficulty && matchLight
+  })
+}
