@@ -41,8 +41,8 @@ const Home = () => {
   return (
     <div className="flex flex-col">
       {/* ── Hero ── */}
-      <section className="container mx-auto max-w-6xl px-4 py-24 flex flex-col items-center text-center gap-6">
-        <Badge variant="outline" className="text-primary border-primary px-3 py-1">
+      <section className="py-24 flex flex-col items-center text-center gap-6">
+        <Badge variant="outline" className="text-primary border-primary p-4">
           🌿 Free delivery on orders over €50
         </Badge>
         <h1 className="text-5xl md:text-6xl font-bold tracking-tight leading-tight">
@@ -69,7 +69,7 @@ const Home = () => {
 
       {/* ── Featured Plants ── */}
       <section className="bg-muted/40 py-16">
-        <div className="container mx-auto max-w-6xl px-4">
+        <div className="px-8">
           <div className="flex items-end justify-between mb-8">
             <div>
               <p className="text-sm text-primary font-medium mb-1">Handpicked for you</p>
@@ -91,7 +91,7 @@ const Home = () => {
 
       {/* ── Categories ── */}
       <section className="py-16">
-        <div className="container mx-auto max-w-6xl px-4">
+        <div className="px-4">
           <div className="text-center mb-10">
             <p className="text-sm text-primary font-medium mb-1">Find your match</p>
             <h2 className="text-3xl font-bold">Shop by Category</h2>
@@ -114,7 +114,7 @@ const Home = () => {
 
       {/* ── Why Verdant ── */}
       <section className="bg-muted/40 py-16">
-        <div className="container mx-auto max-w-6xl px-4">
+        <div className="px-4">
           <div className="text-center mb-10">
             <p className="text-sm text-primary font-medium mb-1">Why choose us</p>
             <h2 className="text-3xl font-bold">The Verdant Difference</h2>
@@ -135,18 +135,16 @@ const Home = () => {
 
       {/* ── CTA Banner ── */}
       <section className="py-16">
-        <div className="container mx-auto max-w-6xl px-4">
-          <div className="rounded-2xl bg-primary/10 border border-primary/20 p-12 flex flex-col items-center text-center gap-4">
-            <h2 className="text-3xl font-bold">Ready to grow your space?</h2>
-            <p className="text-muted-foreground max-w-md">
-              Join thousands of plant lovers who've transformed their homes with Verdant.
-            </p>
-            <Link to="/shop">
-              <Button size="lg" className="gap-2 mt-2">
-                Start Shopping <ArrowRight className="h-4 w-4" />
-              </Button>
-            </Link>
-          </div>
+        <div className="rounded-2xl bg-primary/10 border border-primary/20 p-12 flex flex-col items-center text-center gap-4">
+          <h2 className="text-3xl font-bold">Ready to grow your space?</h2>
+          <p className="text-muted-foreground max-w-md">
+            Join thousands of plant lovers who've transformed their homes with Verdant.
+          </p>
+          <Link to="/shop">
+            <Button size="lg" className="gap-2 mt-2">
+              Start Shopping <ArrowRight className="h-4 w-4" />
+            </Button>
+          </Link>
         </div>
       </section>
     </div>

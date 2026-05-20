@@ -28,7 +28,7 @@ const NavLinks = ({ onClose }: { onClose?: () => void }) => (
         to={link.to}
         onClick={onClose}
         className={({ isActive }) =>
-          `text-sm font-medium transition-colors hover:text-primary ${
+          `text-base font-medium transition-colors hover:text-primary ${
             isActive ? "text-primary" : "text-muted-foreground"
           }`
         }
@@ -47,7 +47,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
-      <div className="container mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
+      <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <Leaf className="h-6 w-6 text-primary" />
@@ -81,10 +81,12 @@ const Header = () => {
                   <User className="h-5 w-5" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
+              <DropdownMenuContent align="end" className="w-36">
                 <DropdownMenuLabel>
-                  <p className="font-medium">{user?.name}</p>
-                  <p className="text-xs text-muted-foreground font-normal">{user?.email}</p>
+                  <p className="font-medium truncate">{user?.name}</p>
+                  <p className="text-xs text-muted-foreground font-normal truncate">
+                    {user?.email}
+                  </p>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
