@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Link, useNavigate } from "react-router"
-import { useAppDispatch } from "@/store/hooks"
-import { signIn } from "@/store/authSlice"
+import { useAppDispatch, useAppSelector } from "@/store/hooks"
+import { selectRegisteredUsers, signIn } from "@/store/authSlice"
 import { signInSchema, type SignInFormData } from "@/schemas/authSchema"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -12,10 +12,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 const SignIn = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
+  const registeredUsers = useAppSelector(selectRegisteredUsers)
 
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors, isSubmitting },
   } = useForm<SignInFormData>({
     resolver: zodResolver(signInSchema),
@@ -23,7 +25,16 @@ const SignIn = () => {
 
   const onSubmit = async (data: SignInFormData) => {
     await new Promise((resolve) => setTimeout(resolve, 1000))
-    dispatch(signIn({ name: "User", email: data.email }))
+
+    const match = registeredUsers.find(
+      (u) => u.email === data.email && u.password === data.password
+    )
+    if (!match) {
+      setError("email", { message: "Invalid email or password" })
+      return
+    }
+
+    dispatch(signIn({ name: match.name, email: match.email }))
     navigate("/")
   }
 

@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Link, useNavigate } from "react-router"
-import { useAppDispatch } from "@/store/hooks"
-import { signIn } from "@/store/authSlice"
+import { useAppDispatch, useAppSelector } from "@/store/hooks"
+import { selectRegisteredUsers, signIn, signUp } from "@/store/authSlice"
 import { signUpSchema, type SignUpFormData } from "@/schemas/authSchema"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -12,10 +12,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 const SignUp = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
+  const registeredUsers = useAppSelector(selectRegisteredUsers)
 
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors, isSubmitting },
   } = useForm<SignUpFormData>({
     resolver: zodResolver(signUpSchema),
@@ -23,7 +25,14 @@ const SignUp = () => {
 
   const onSubmit = async (data: SignUpFormData) => {
     await new Promise((resolve) => setTimeout(resolve, 1000))
-    dispatch(signIn({ name: data.name, email: data.email }))
+
+    const emailExists = registeredUsers.some((u) => u.email === data.email)
+    if (emailExists) {
+      setError("email", { message: "This email is already registered" })
+      return
+    }
+
+    dispatch(signUp({ name: data.name, email: data.email, password: data.password }))
     navigate("/")
   }
 

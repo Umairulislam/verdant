@@ -40,3 +40,7 @@ export type AuthUser = {
   name: string
   email: string
 }
+
+export type StoredUser = AuthUser & {
+  password: string
+}
