@@ -10,6 +10,7 @@ import SignIn from "./pages/SignIn"
 import SignUp from "./pages/SignUp"
 import NotFound from "./pages/NotFound"
 import ProtectedRoute from "./components/shared/ProtectedRoute"
+import GuestRoute from "./components/shared/GuestRoute"
 
 const routes = createBrowserRouter([
   {
@@ -20,8 +21,13 @@ const routes = createBrowserRouter([
       { index: true, Component: Home },
       { path: "shop", Component: Shop },
       { path: "shop/:plantId", Component: ProductDetail },
-      { path: "sign-in", Component: SignIn },
-      { path: "sign-up", Component: SignUp },
+      {
+        Component: GuestRoute,
+        children: [
+          { path: "sign-in", Component: SignIn },
+          { path: "sign-up", Component: SignUp },
+        ],
+      },
       {
         // Protected routes — redirect to sign-in if not authenticated
         Component: ProtectedRoute,
