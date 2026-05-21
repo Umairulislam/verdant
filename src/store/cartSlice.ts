@@ -24,13 +24,25 @@ const cartSlice = createSlice({
         match.quantity++
       }
     },
+    removeItem: (state, action: PayloadAction<Plant>) => {
+      const match = state.items.find((item) => item.id === action.payload.id)
+      if (!match) return
+      match.quantity--
+      if (match.quantity === 0) {
+        state.items = state.items.filter((item) => item.id !== action.payload.id)
+      }
+    },
   },
 })
 
-export const { addItem } = cartSlice.actions
+export const { addItem, removeItem } = cartSlice.actions
 
 export const selectCartCount = (state: RootState) =>
   state.cart.items.reduce((acc, item) => acc + item.quantity, 0)
+export const selectItemQuantity = (plantId: string) => (state: RootState) => {
+  const match = state.cart.items.find((item) => item.id === plantId)
+  return match?.quantity || 0
+}
 
 const cartReducer = cartSlice.reducer
 export default persistReducer({ key: "cart", storage }, cartReducer)
