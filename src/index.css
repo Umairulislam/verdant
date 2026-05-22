@@ -117,4 +117,7 @@
   html {
     @apply font-sans text-sm sm:text-base lg:text-lg;
   }
+  button {
+    @apply cursor-pointer;
+  }
 }
