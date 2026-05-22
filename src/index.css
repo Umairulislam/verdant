@@ -121,3 +121,23 @@
     @apply cursor-pointer;
   }
 }
+
+.card-3d {
+  perspective: 1000px;
+}
+.card-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.card-inner.flipped {
+  transform: rotateY(180deg);
+}
+.card-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  inset: 0;
+}
+.card-back {
+  transform: rotateY(180deg);
+}
