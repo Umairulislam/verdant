@@ -96,6 +96,16 @@ const Checkout = () => {
         cardNumber: data.cardNumber,
         status: "pending",
         createdAt: new Date().toISOString(),
+        shipping: {
+          // add shipping details
+          fullName: data.fullName,
+          email: data.email,
+          phone: data.phone,
+          address: data.address,
+          city: data.city,
+          postcode: data.postcode,
+          country: data.country,
+        },
       })
     )
     dispatch(resetCart())

@@ -27,6 +27,16 @@ export type CartItem = Plant & {
 
 export type OrderStatus = "pending" | "confirmed" | "delivered"
 
+export type ShippingDetails = {
+  fullName: string
+  email: string
+  phone: string
+  address: string
+  city: string
+  postcode: string
+  country: string
+}
+
 export type Order = {
   id: string
   items: CartItem[]
@@ -34,6 +44,7 @@ export type Order = {
   cardNumber: string
   status: OrderStatus
   createdAt: string
+  shipping: ShippingDetails
 }
 
 export type AuthUser = {
