@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { toast } from "sonner"
 
 const SignUp = () => {
   const dispatch = useAppDispatch()
@@ -32,6 +33,7 @@ const SignUp = () => {
       return
     }
 
+    toast.success(`Welcome to Verdant, ${data.name}! 🌿`)
     dispatch(signUp({ name: data.name, email: data.email, password: data.password }))
     navigate("/")
   }

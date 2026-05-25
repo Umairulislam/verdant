@@ -14,6 +14,7 @@ import {
 import { useAppDispatch, useAppSelector } from "@/store/hooks"
 import { selectIsAuthenticated, selectUser, signOut } from "@/store/authSlice"
 import { selectCartCount } from "@/store/cartSlice"
+import { toast } from "sonner"
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -98,7 +99,9 @@ const Header = () => {
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
                   className="text-red-500 cursor-pointer"
-                  onClick={() => dispatch(signOut())}
+                  onClick={() => {
+                    ;(dispatch(signOut()), toast.success("Signed out successfully"))
+                  }}
                 >
                   <LogOut className="mr-2 h-4 w-4" />
                   Sign Out

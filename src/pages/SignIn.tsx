@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { toast } from "sonner"
 
 const SignIn = () => {
   const dispatch = useAppDispatch()
@@ -34,6 +35,7 @@ const SignIn = () => {
       return
     }
 
+    toast.success("Welcome back!")
     dispatch(signIn({ name: match.name, email: match.email }))
     navigate("/")
   }

@@ -14,6 +14,7 @@ import { createOrder } from "@/store/ordersSlice"
 import { formatPrice } from "@/utils/formatPrice"
 import { createOrderId } from "@/utils/createOrderId"
 import { checkoutSchema, type CheckoutFormData } from "@/schemas/checkoutSchema"
+import { toast } from "sonner"
 
 const DELIVERY_THRESHOLD = 50
 const DELIVERY_FEE = 4.99
@@ -108,6 +109,7 @@ const Checkout = () => {
         },
       })
     )
+    toast.success("Order placed successfully!")
     dispatch(resetCart())
     navigate(`/order/${orderId}`)
   }

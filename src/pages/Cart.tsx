@@ -12,6 +12,7 @@ import {
   selectCartTotal,
 } from "@/store/cartSlice"
 import { formatPrice } from "@/utils/formatPrice"
+import { toast } from "sonner"
 
 const DELIVERY_THRESHOLD = 50
 const DELIVERY_FEE = 4.99
@@ -77,7 +78,10 @@ const Cart = () => {
                     </h3>
                   </Link>
                   <button
-                    onClick={() => dispatch(deleteItem(item))}
+                    onClick={() => {
+                      dispatch(deleteItem(item))
+                      toast.success(`${item.name} removed from cart`)
+                    }}
                     className="text-muted-foreground hover:text-destructive transition-colors shrink-0"
                   >
                     <Trash2 className="h-4 w-4" />

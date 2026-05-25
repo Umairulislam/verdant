@@ -1,5 +1,6 @@
 import { Link } from "react-router"
 import { ShoppingCart } from "lucide-react"
+import { toast } from "sonner"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -58,7 +59,13 @@ const PlantCard = ({ plant }: PlantCardProps) => {
 
       <CardFooter>
         {plant.inStock ? (
-          <Button className="w-full" onClick={() => dispatch(addItem(plant))}>
+          <Button
+            className="w-full"
+            onClick={() => {
+              dispatch(addItem(plant))
+              toast.success(`${plant.name} added to cart`)
+            }}
+          >
             <ShoppingCart className="h-4 w-4 mr-2" />
             Add to Cart
           </Button>
