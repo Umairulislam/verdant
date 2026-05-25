@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router"
-import { ShoppingCart, Leaf, Menu, LogOut, User } from "lucide-react"
+import { ShoppingCart, Leaf, Menu, LogOut, User, ClipboardList } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
@@ -88,6 +88,13 @@ const Header = () => {
                     {user?.email}
                   </p>
                 </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <Link to="/profile">
+                  <DropdownMenuItem className="cursor-pointer gap-2">
+                    <ClipboardList className="h-4 w-4" />
+                    My Profile
+                  </DropdownMenuItem>
+                </Link>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
                   className="text-red-500 cursor-pointer"

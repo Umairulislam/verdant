@@ -11,6 +11,7 @@ import SignUp from "./pages/SignUp"
 import NotFound from "./pages/NotFound"
 import ProtectedRoute from "./components/shared/ProtectedRoute"
 import GuestRoute from "./components/shared/GuestRoute"
+import Profile from "./pages/Profile"
 
 const routes = createBrowserRouter([
   {
@@ -35,6 +36,7 @@ const routes = createBrowserRouter([
           { path: "cart", Component: Cart },
           { path: "checkout", Component: Checkout },
           { path: "order/:orderId", Component: Order },
+          { path: "profile", Component: Profile },
         ],
       },
     ],
